@@ -1,70 +1,13 @@
 window.onload = () => {
-
-    function resize() {
-        var canvas = document.querySelector("canvas");
-        var windowWidth = window.innerWidth;
-        var windowHeight = window.innerHeight;
-        var windowRatio = windowWidth / windowHeight;
-        var gameRatio = game.config.width / game.config.height;
-
-        ////////////////////////////////////////////////////
-        var config = {
-            // ...
-            parent: divId,
-        
-            // Game size
-            width: 1024,
-            height: 768,
-        
-            scale: {
-                
-                parent: divId,
-        
-                mode: Phaser.Scale.FIT,
-                autoCenter: Phaser.Scale.CENTER_BOTH,
-        
-                
-                min: {
-                    width: 800,
-                    height: 600
-                },
-                
-                max: {
-                    width: 1600,
-                    height: 1200
-                },
-                
-        
-                zoom: 1,
-            },
-            autoRound: false
-            // ...
-        };
-        var game = new Phaser.Game(config);
-        ////////////////////////////////////////////////////
-
-        if(windowRatio < gameRatio){
-            canvas.style.width = windowWidth + "px";
-            canvas.style.height = (windowWidth / gameRatio) + "px";
-        }
-        else {
-            canvas.style.width = (windowHeight * gameRatio) + "px";
-            canvas.style.height = windowHeight + "px";
-        }
-    }
-    //////////////////////////////////////////////
-    // window.onload = function() {
-    //     //Game config here
-    //     var config = {...};
-    //     var game = new Phaser.Game(config);
-    //     resize();
-    //     window.addEventListener("resize", resize, false);
-    // }
-    ///////////////////////////////////////////////////
   var config = {
     type: Phaser.AUTO,
-    width: 1366,
-    height: 657,
+    scale: {
+        mode: Phaser.Scale.FIT,
+
+        autoCenter: Phaser.Scale.CENTER_BOTH,
+        width: 1366,
+        height: 700
+    },
     physics: {
       default: 'arcade',
       arcade: {
@@ -134,6 +77,14 @@ window.onload = () => {
         platforms.create(1150, 400, 'ground');
         platforms.create(300, 250, 'ground');
         platforms.create(750, 250, 'ground');
+
+        platforms.create(100, 670, 'ground')
+        platforms.create(400, 670, 'ground')
+        platforms.create(600, 670, 'ground')
+        platforms.create(800, 670, 'ground')
+        platforms.create(1000, 670, 'ground')
+        platforms.create(1300, 670, 'ground')
+
         player = this.physics.add.sprite(100, 450, 'dude');
 
         player.setBounce(0.2);
@@ -168,7 +119,7 @@ window.onload = () => {
             repeat: 8,
             setXY: { x: 50, y: 0, stepX: 150 }
         });
-        
+
 
         stars.children.iterate(function (child) {
             child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));

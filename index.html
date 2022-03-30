@@ -12,19 +12,20 @@
 
 </head>
 <body>
+
     <script>
         function myFunction(x) {
           if (x.matches) { // If media query matches
-            alert ["juego educativo"];
+            alert("Para jugar a en este dispositivo necesitas un teclado");
           } else {
-            alert ["Para juegar a en este dispositivo necesitas un teclado"];
+            null;
           }
         }
-        
+
         var x = window.matchMedia("(max-width: 700px)")
         myFunction(x) // Call listener function at run time
         x.addListener(myFunction) // Attach listener function on state changes
         </script>
-        
+
 </body>
 </html>
