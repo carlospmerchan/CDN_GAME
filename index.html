@@ -4,28 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brush ur teeths</title>
-    <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css
-    ">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.60.0-beta.4/phaser.min.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css">
     <script src="app/main.js"></script>
 
-</head>
-<body>
+    <head>
+        <body>
+            <script>
+                function myFunction(x) {
+                  if (x.matches) { // If media query matches
+                    alert("Para jugar a en este dispositivo necesitas un teclado");
+                  } else {
+                    null;
+                  }
+                }
+        
+                var x = window.matchMedia("(max-width: 700px)")
+                myFunction(x) // Call listener function at run time
+                x.addListener(myFunction) // Attach listener function on state changes
+                </script>
 
-    <script>
-        function myFunction(x) {
-          if (x.matches) { // If media query matches
-            alert("Para jugar a en este dispositivo necesitas un teclado");
-          } else {
-            null;
-          }
-        }
-
-        var x = window.matchMedia("(max-width: 700px)")
-        myFunction(x) // Call listener function at run time
-        x.addListener(myFunction) // Attach listener function on state changes
-        </script>
-
-</body>
-</html>
+            <a href="index.html"><button class="btn_jugar">PLAY</button></a>
+            <img src="assets/images/splash.png" alt="brush ur teeths game">
+        </body>
+    </head>
